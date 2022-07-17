@@ -10,6 +10,6 @@ public class RollController {
     @PostMapping("/reroll")
     public String getStatsRoll() {
         StatRollsSet rollsSet = new StatRollsSet();
-        return "Crappy output I was Talking about";
+        return "Crappy output I was talking about";
     }
 }
