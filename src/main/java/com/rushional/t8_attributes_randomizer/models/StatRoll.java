@@ -20,4 +20,8 @@ public class StatRoll {
         rolls.sort(Collections.reverseOrder()); //descending order, so the smallest is the last one
         resultValue = rolls.get(0) + rolls.get(1) + rolls.get(2);
     }
+
+    public String toString() {
+        return resultValue + " (" + rolls.get(0) + " + " + rolls.get(1) + " + " + rolls.get(2) + " & " + rolls.get(3) + ')';
+    }
 }
