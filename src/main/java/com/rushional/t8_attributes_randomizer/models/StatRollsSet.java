@@ -20,11 +20,11 @@ public class StatRollsSet {
 
     public String toString() {
         StringBuilder outputBuilder = new StringBuilder();
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             outputBuilder.append(rollsList.get(i).toString())
                     .append("\\n");
         }
-        outputBuilder.append(rollsList.get(5));
+        outputBuilder.append(rollsList.get(5).toString());
         System.out.println(outputBuilder.toString());
         return outputBuilder.toString();
     }

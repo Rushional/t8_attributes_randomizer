@@ -21,6 +21,7 @@
         fetch("/reroll", {method:"POST"})
             .then( response => response.text() )
             .then( text => text.replaceAll("\\n", "<br/>"))
+            // .then( text => crappyOutput.text = text)
             .then( text => crappyOutput.innerHTML = text)
         ;
     }
