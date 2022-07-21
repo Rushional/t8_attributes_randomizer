@@ -6,37 +6,22 @@
 </head>
 <body>
 
-<!--<p id="rollResult" th:text="'The result of a d20 is ' + ${d20_roll}"></p>-->
-
 <div th:each="statRoll : ${statRollsList}">
     <a th:text="${statRoll.resultValue}"></a>
 </div>
 
-
 <h1>Crappy output of randomized attributes here:</h1>
-<p id="crappyOutput">This text will be replaced. It doesn't want to. It doesn't have a choice.</p>
+<p id="crappyOutput" >This text will be replaced. It doesn't want to. It doesn't have a choice.</p>
 <button id="rerollButton" >Reroll</button>
 
-
-<!--
-    Server will probably return JSON with 6 objects: attr calculations.
-    2 ways to do this.
-    1) directly replace the text in 6 text tags
-    2) Somehow replace values in the page model and then update the text based on that
-
-    1 sounds easier but probably worse. But I'm not sure 2 is possible. It probably is.
-
-    For now though, we will just have one output tag.
--->
 <script th:inline="javascript">
-    // var rollResult = document.getElementById("rollResult");
     var rerollButton = document.getElementById("rerollButton");
     var crappyOutput = document.getElementById("crappyOutput");
     rerollButton.onclick = function(e){
-        // var entryTextInput = document.getElementById("entryTextField").value;
         fetch("/reroll", {method:"POST"})
             .then( response => response.text() )
-            .then( text => crappyOutput.textContent = text )
+            .then( text => text.replaceAll("\\n", "<br/>"))
+            .then( text => crappyOutput.innerHTML = text)
         ;
     }
 </script>

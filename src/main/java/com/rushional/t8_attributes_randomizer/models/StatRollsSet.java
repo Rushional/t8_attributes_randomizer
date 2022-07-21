@@ -20,10 +20,12 @@ public class StatRollsSet {
 
     public String toString() {
         StringBuilder outputBuilder = new StringBuilder();
-        rollsList.forEach(roll -> outputBuilder.append(roll.toString()).append(' '));
-//        Kinda bothers me that there would be an empty space at the end for no reason, but like...
-//        This is inherently a bad way of doing it, I'm doing it to learn,
-//        later will use JSON in these cases anyway, so whatever
+        for (int i = 0; i < 4; i++) {
+            outputBuilder.append(rollsList.get(i).toString())
+                    .append("\\n");
+        }
+        outputBuilder.append(rollsList.get(5));
+        System.out.println(outputBuilder.toString());
         return outputBuilder.toString();
     }
 }
